@@ -52,7 +52,7 @@ int main(){
     
     if(strcmp(input, (char*)"addvertex") == 0){
       cout << "Enter vertex label for graph" << endl;
-      cin.getline(vertexInput, 20);      
+      cin >> vertexInput;   
       //cout << (char*) vertexInput << endl;
       addVertex(vertex, vertexCount, vertexInput);
     }
@@ -142,8 +142,8 @@ void printGraph(char* vertex[20], float adTable[20][20]){
   }
   cout << endl;
 
-  //Print top vertices
-
+  cout << "Adjacent table for the edges: " << endl;
+  //Print top vertices (as label for the column) 
   cout << "       ";
   for(int i = 0; i < 20; i++){
     if(vertex[i] != NULL){
@@ -151,6 +151,7 @@ void printGraph(char* vertex[20], float adTable[20][20]){
     }
   }
   cout << endl;
+  
   //Print edges
   for(int i = 0; i < 20; i++){
     if(vertex[i] != NULL){
@@ -344,7 +345,7 @@ void findPath(char* vertex[20], float adTable[20][20], char firstVertex[20], cha
   
   //No path found
   if(destination == NULL){
-    cout << "No path found" << endl;
+    cout << "No path found" << endl << endl;
   }
 
   //Path found
@@ -352,7 +353,7 @@ void findPath(char* vertex[20], float adTable[20][20], char firstVertex[20], cha
     float totalWeight = 0;
     cout << "Path found: ";
     printPath(destination, vertex, totalWeight, adTable);
-    cout << endl << "Total Weight: " << totalWeight << endl;
+    cout << endl << "Total Weight: " << totalWeight << endl << endl;
   }
 }
 
